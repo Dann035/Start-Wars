@@ -13,37 +13,37 @@ export const initialStore=()=>{
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
-    case 'get_characters':
+    case 'GET_CHARACTERS':
       return {
         ...store,
         characters: action.payload,
         loading: false,
       };
-    case 'get_vehicles':
+    case 'GET_VEHICLES':
       return {
         ...store,
         vehicles: action.payload,
         loading: false,
       };
-    case 'get_species':
+    case 'GET_SPECIES':
       return {
         ...store,
         species: action.payload,
         loading: false,
       };
-    case 'get_starships':
+    case 'GET_STARSHIPS':
       return {
         ...store,
         starships: action.payload,
         loading: false,
       };
-    case 'get_planets':
+    case 'GET_PLANETS':
       return {
         ...store,
         planets: action.payload,
         loading: false,
       };
-    case 'get_films':
+    case 'GET_FILMS':
       return {
         ...store,
         films: action.payload,
