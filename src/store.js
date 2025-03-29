@@ -8,6 +8,8 @@ export const initialStore=()=>{
     planets: [],
     films: [],
     loading: false,
+    favorites:[],
+    fav: false,
   }
 }
 
@@ -35,7 +37,7 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         starships: action.payload,
-        loading: false,
+        loading: true,
       };
     case 'GET_PLANETS':
       return {
@@ -48,6 +50,22 @@ export default function storeReducer(store, action = {}) {
         ...store,
         films: action.payload,
         loading: false,
+      };
+    case 'SET_LOADING':
+      return {
+        ...store,
+        loading: action.payload,
+      };
+    case 'SET_ERROR':
+      return {
+        ...store,
+        message: action.payload,
+        loading: false,
+      };
+    case 'SET_FAVORITES':
+      return {
+        ...store,
+        favorites: action.payload,
       };
     default:
       throw new Error('Invalid action type')
