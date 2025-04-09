@@ -43,8 +43,9 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #060913 !important;
-  backdrop-filter: blur(20px);
+  background-image: url("src/assets/img/Death-Star-I-copy_36ad2500.jpeg_region=0,0,1600,900.png");
+  background-size: cover;
+  backdrop-filter: blur(2px);
   color: #fff;
 }
 
