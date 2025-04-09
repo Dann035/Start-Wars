@@ -1,6 +1,7 @@
 export const initialStore=()=>{
+  const storedData = JSON.parse(localStorage.getItem('starWarsData')) || {};
+  console.log('Loaded data from localStorage:', storedData);
   return{
-    message: null,
     vehicles: [],
     characters: [],
     species: [],
@@ -12,9 +13,14 @@ export const initialStore=()=>{
     fav: false,
   }
 }
-
 export default function storeReducer(store, action = {}) {
   switch(action.type){
+    case 'GET_DATA':
+      return {
+        ...store,
+        data: action.payload,
+        loading: false,
+      };
     case 'GET_CHARACTERS':
       return {
         ...store,
@@ -66,6 +72,23 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         favorites: action.payload,
+      };
+    case 'SAVE_TO_LOCALSTORAGE':
+      const combinedData = {
+        vehicles: store.vehicles,
+        characters: store.characters,
+        species: store.species,
+        starships: store.starships,
+        planets: store.planets,
+        films: store.films,
+      };
+      localStorage.setItem('starWarsData', JSON.stringify(combinedData));
+      return store;
+    case 'GET_DATA_FROM_LOCALSTORAGE':
+      return {
+        ...store,
+        ...action.payload,
+        loading: false,
       };
     default:
       throw new Error('Invalid action type')
