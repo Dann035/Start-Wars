@@ -7,7 +7,19 @@ import {
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
+{/* <Route path="/characterDetails/:idCharacter" element={<CharacterDetail />} />
+<Route path="/filmsDetails/:idFilms" element={<FilmsDetail />} />
+<Route path="/planetsDetails/:idPlanets" element={<PlanetsDetails />} />
+<Route path="/speciesDetails/:idSpecies" element={<SpeciesDetails />} />
+<Route path="/starshipsDetails/:idStarships" element={<StarshipsDetails />} />
+<Route path="/vehiclesDetails/:idVehicles" element={<VehiclesDetails />} /> */}
 import Login from "./pages/Login/Login";
+import { CharactersDetails } from "../src/pages/Details/CharactersDetails.jsx";
+import PlanetsDetails from "./pages/Details/PlanetsDetails";
+import SpeciesDetails from "./pages/Details/SpeciesDetails";
+import StarshipsDetails from "./pages/Details/StarshipsDetails";
+import VehiclesDetails from "./pages/Details/VehiclesDetails";
+import FilmsDetails from "./pages/Details/FilmsDetails.jsx";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,12 +33,12 @@ export const router = createBrowserRouter(
         <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>}>
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            {/* <Route path="/films" element={<Home />} /> */}
-            {/* <Route path="/planets" element={<Home />} /> */}
-            {/* <Route path="/species" element={<Home />} /> */}
-            {/* <Route path="/starships" element={<Home />} /> */}
-            {/* <Route path="/vehicles" element={<Home />} /> */}
-            {/* <Route path="/characters" element={<Home />} /> */}
+            <Route path="/characterDetails/:idCharacter" element={<CharactersDetails />} />
+            <Route path="/planetsDetails/:idPlanets" element={<PlanetsDetails />} />
+            <Route path="/speciesDetails/:idSpecies" element={<SpeciesDetails />} />
+            <Route path="/starshipsDetails/:idStarships" element={<StarshipsDetails />} />
+            <Route path="/vehiclesDetails/:idVehicles" element={<VehiclesDetails />} />
+            <Route path="/filmsDetails/:idFilms" element={<FilmsDetails />} />
         </Route>
     ),
     {
