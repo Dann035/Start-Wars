@@ -11,16 +11,17 @@ import {
     Pagination
 } from "swiper/modules";
 import "./Characters.css";
+import { Link} from "react-router-dom";
 
 function Characters() {
     const { store, dispatch } = useGlobalReducer();
-
+    
     const toggleFavorite = (character) => {
-        const isFavorite = store.favorites.some(fav => fav.uid === character.uid)
+        const isFavorite = store.favorites.some(fav => fav.name === character.name)
 
         let updatedFavorites;
         if (isFavorite){
-            updatedFavorites = store.favorites.filter(fav => fav.uid !== character.uid);
+            updatedFavorites = store.favorites.filter(fav => fav.name !== character.name);
         }else {
             updatedFavorites = [...store.favorites, character];
         }
@@ -60,7 +61,7 @@ function Characters() {
             <div className="swiper">
                 <div className="swiper-wrapper">
                     {store.characters.map((character) => {
-                        const isFavorite = store.favorites.some((fav) => fav.uid === character.uid);
+                        const isFavorite = store.favorites.some((fav) => fav.name === character.name);
                         return (
                             <div className="swiper-slide" key={character.uid}>
                                 <img
@@ -72,9 +73,11 @@ function Characters() {
                                         {character.name}
                                     </span>
                                     <div className="d-flex justify-content-center gap-2">
-                                        <button className="btn btn-warning">
-                                            Show More!
-                                        </button>
+                                        <Link to={`/characterDetails/${character.uid}`}>
+                                            <button className="btn btn-warning">
+                                                Show More!
+                                            </button>
+                                        </Link>
                                         <button 
                                             className={`btn btn-warning favorite-btn${
                                                 isFavorite ? "active" : ""
