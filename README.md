@@ -1,73 +1,96 @@
-# WebApp Template with React JS
+# Resultados
+
+![Login](public/Vista-Login.png)
+![Loading](public/Vista-Loading.png)
+![Home](public/Vista-Principal.png)
+
+|Vista|VistaDetalles|
+|:---:|:---:|
+|![Vista](public/1era-Vista-Detail.png)|![VistaDetalles](public/Show-more-details.png)|
 
 
-Used by 4Geeks.com and 4Geeks Academy students, this template helps to bootstrap your first multi-page web applications by integrating with React latest version, vercel deployments and [Vite](https://4geeks.com/lesson/intro-to-vite-module-bundler) for bundling.
+### Tecnologías
+- Vite
+- React
+- Swaiper
+- React Router
+- Context API 
+- useReducer
+- Font Awesome
+- Bootstrap
 
-### Getting stated:
+## Plantilla WebApp con React JS
 
-> 📦 Make sure you are using at least node version 20.
+> 🎥 Esta plantilla [cuenta con un video tutorial](https://youtu.be/9blWKQTJ1FA), para verlo haz clic aquí.
 
-1. Install the node package dependencies by typing: `$ npm install`
+Utilizada por [4Geeks.com](https://4geeks.com/) y los estudiantes de [4Geeks Academy](https://4geeksacademy.com/), esta plantilla ayuda a iniciar tus primeras aplicaciones web multi-página integrándose con la última versión de React, React-Router, despliegues en Vercel y [Vite](https://4geeks.com/es/lesson/introduccion-a-vite-como-empaquetador-de-modulos) para el empaquetado.
 
-2. Create a .env file by typing `$ cp .env.example .env`
+### Empezando:
 
-3. Start coding! and the vite dev server with live reload by typing: `$ npm run start`
+> 📦 Asegúrate de usar al menos la versión 20 de Node.
 
+1. Instala las dependencias del paquete node escribiendo: `$ npm install`
 
-### Styling
+2. Crea un archivo .env basado en el .env.example escribiendo `$ cp .env.example .env`
 
-You can update the `./index.css` or create new `.css` files and import them into your current css or js files depending on your needs.
+3. ¡Comienza a programar! y el servidor de desarrollo de vite con recarga en vivo escribiendo: `$ npm run start`
 
-### Components
+### Estilos
 
-Add more files into your `./src/components` or styles folder as you need them and import them into your current files as needed.
+Puedes actualizar el archivo `./index.css` o crear nuevos archivos `.css` e importarlos en tus archivos css o js actuales según tus necesidades.
 
-💡Note: There is an example using the Context API inside `pages/demo.js`;
+### Componentes
 
-### Pages
+Agrega más archivos en tu carpeta `./src/components` según los necesites e impórtalos en tus paginas actuales según sea necesario.
 
-Add more files into your `./js/pages` and import them in `./routes.jsx`.
-Each page must match at least one route inside `routes.jsx`
+### Páginas
 
-### Centralized Store with useReducer
+Agrega más archivos en tu carpeta `./js/pages` e impórtalos en `./routes.jsx`.
+Cada página debe coincidir con al menos una ruta dentro de `routes.jsx`
 
-This template comes with a centralized & general state that's shared with all pages and compoentes, we call it "the store".   
+### Almacenamiento Centralizado con useReducer
 
-The file `./src/store.js` has a default structure for the store, we encourage you to change it and adapt it to your data needs (for example, if you are doing a `Todo list` you will probably have a array of todos here).
+Esta plantilla viene con un estado general y centralizado que se comparte con todas las páginas y componentes, lo llamamos "store".
 
-+ Learn [how the useReducer works](https://4geeks.com/lesson/optimize-react-components-usereducer).
-+ Read more about [implementing a global state with Context API](https://4geeks.com/lesson/context-api)
-+ Read more about [react hooks](https://content.breatheco.de/lesson/react-hooks-explained)
+El archivo `./src/store.js` tiene una estructura predeterminada para el store, te animamos a cambiarla y adaptarla a tus necesidades de datos (por ejemplo, si estás haciendo una `Lista de tareas` probablemente tendrás un arreglo de tareas aquí).
 
-The store `Provider` for this context is already set on `./src/main.jsx`. You can access the store from any component using the `useGlobalReducer` hook to get the `store` and `dispatcher`. Check `/views/demo.js` to see a demo. Here is a smaller sample:
+💡Nota: Hay un ejemplo usando el store y dispatcher de useReducer en el archivo `pages/demo.js`;
+
++ Entiende [como funciona el `useReducer`](https://4geeks.com/es/lesson/que-es-usereducer-react)
++ Lee más sobre [implementar un estado global con API de Contexto](https://4geeks.com/es/lesson/context-api-es)
++ Lee más sobre [hooks de react](https://4geeks.com/es/lesson/react-hooks-explained-es)
+
+El `Proveedor` del store para este contexto ya está configurado en `./src/main.jsx`. Puedes acceder al store desde cualquier componente usando el hook `useGlobalReducer` para obtener el `store` y el `despachador`. Consulta `/views/demo.js` para ver una demostración. Aquí tienes un ejemplo más pequeño:
 
 ```jsx
 import useGlobalReducer from "./src/hooks/useGlobalReducer";
 
 const MyComponentSuper = () => {
-  //here you use the hook to get dispatcher and store
+  //aquí usas el hook para obtener el despachador y el almacén
   import { dispatch, store } = useGlobalReducer();
 
-  return <div>{/* you can use your actions or store inside the html */}</div>
+  return <div>{/* puedes usar tus acciones o el almacén dentro del html */}</div>
 }
 ```
 
-## Publish your website!
+## ¡Publica tu sitio web!
 
-1. **Vercel:** The FREE recomended hosting provider is [vercel.com](https://vercel.com/), you can deploy in 1 minutes by typing the following 2 commands:
+1. **Vercel:** El proveedor de alojamiento GRATUITO recomendado es [vercel.com](https://vercel.com/), puedes desplegar en 1 minuto escribiendo los siguientes 2 comandos:
 
-Login (you need to have an account):
+Iniciar sesión (necesitas tener una cuenta):
 ```sh
 $ npm i vercel -g && vercel login
 ```
-Deploy:
+Desplegar:
 ```sh
 $ vercel --prod
 ```
-✎ Note: If you don't have an account just go to vercel.com, create a account and come back here.
+✎ Nota: Si no tienes una cuenta, simplemente ve a vercel.com, crea una cuenta y regresa aquí.
 
-![Vercel example procedure to deploy](https://github.com/4GeeksAcademy/react-hello-webapp/blob/4b530ba091a981d3916cc6e960e370decaf2e234/docs/deploy.png?raw=true)
+![Procedimiento de ejemplo de Vercel para desplegar](https://github.com/4GeeksAcademy/react-hello-webapp/blob/4b530ba091a981d3916cc6e960e370decaf2e234/docs/deploy.png?raw=true)
 
-## Contributors
+## Contribuidores
 
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning) and [CyberSecurity Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/cybersecurity).
+Esta plantilla fue construida como parte del [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) de 4Geeks Academy por [Alejandro Sanchez](https://twitter.com/alesanchezr) y muchos otros contribuidores. Descubre más sobre nuestro [Curso de Desarrollador Full Stack](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), [Curso de data-science](https://4geeksacademy.com/es/coding-bootcamps/curso-datascience-machine-learning) y [Curso de Ciberseguridad](https://4geeksacademy.com/es/coding-bootcamps/curso-ciberseguridad).
+
+https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/4.jpg
